@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MY Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+	<script src="js/scripts.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="icon" type="image/png" href="assets\images/emj.png">
+	
+	<style>
+ body {
+      
+    }
+
+    /* Loader container */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #282c34;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    /* Progress bar styling */
+    #progress-bar {
+      width: 300px;
+      height: 10px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    #progress {
+      width: 0;
+      height: 100%;
+      background: #4caf50;
+      transition: width 0.1s;
+    }
+
+    #percentage {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+	#loader h1 {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(100deg); }
+}
+
+    
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <h1>Loading...</h1>
+    <div id="progress-bar">
+      <div id="progress"></div>
+    </div>
+    <div id="percentage">0%</div>
+  </div>
+
+  <script>
+    // JavaScript for loader functionality
+    const progress = document.getElementById("progress");
+    const percentage = document.getElementById("percentage");
+    const loader = document.getElementById("loader");
+    const content = document.getElementById("content");
+
+    let load = 0; // Start at 0%
+    const interval = setInterval(() => {
+      load++;
+      progress.style.width = load + "%";
+      percentage.textContent = load + "%";
+
+      
+      if (load === 100) {
+        clearInterval(interval);
+        loader.style.display = "none"; 
+        content.style.display = "block"; 
+      }
+    }, 50); 
+  </script>
+  </style>
+    <style>
+        
+        .nav-link:hover {
+            color: #007bff;
+            transform: scale(1.2);
+			transition: color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero h1 {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Button Glow Effect */
+        .btn-glow:hover {
+            box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /* Dark Mode Transition */
+        body {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Navbar hover effect */
+        .navbar-nav .nav-link {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            transform: scale(1.1);
+            color: #007bff;
+        }
+
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Profile Photo Hover Effect */
+        .img-fluid.rounded-circle {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .img-fluid.rounded-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Smooth Transition for Body */
+        #body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .col-md-6 {
+                margin-bottom: 15px;
+            }
+
+            .col-md-4 {
+                margin-bottom: 15px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .img-fluid.rounded-circle {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.875rem;
+            }
+
+            .btn-glow {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+        }
+
+        /* Large Screen adjustments */
+        @media (min-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .card-body {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="btn btn-secondary position-fixed top-0 end-0 m-3">Toggle Theme</button>
+    <style>
+        /* Embedded CSS */
+        #navbar {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+        }
+
+        /* Styling the logo */
+        .navbar-brand img {
+            display: block;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+         
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: none; /* Ensures no background */
+        }
+
+        /* Hover Effects for Logo */
+        .navbar-brand img:hover {
+            transform: scale(1.2); /* Slight size increase */
+            box-shadow: 0 8px 20px rgba(0, 128, 0, 0.6), 
+                0 12px 30px rgba(255, 165, 0, 0.5), 
+                0 16px 40px rgba(0, 0, 255, 0.4); 
+
+        }
+    </style>
+
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <div class="container">
+<a class="navbar-brand" href="#"><img src="assets\images/logo.JPG" alt="Yash Rajesh Logo"  class="navbar-brand"  class="left-align"   width="150"   height="150"></a>
+<style>
+.left-align {
+  float: left; 
+}
+</style>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+    <a class="nav-link" href="#about">
+        <i class="fas fa-user fa-lg"></i> About Me
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#skills">
+        <i class="fas fa-lightbulb fa-lg"></i> Skills
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#projects">
+        <i class="fas fa-laptop-code fa-lg"></i> Projects
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#contact">
+        <i class="fas fa-envelope fa-lg"></i> Contact Me
+    </a>
+</li>
+
+</ul>
+            </div>
+        </div>
+    </nav>
+	
+
+    <!-- Hero Section -->
+    <header class="hero text-center text-light py-5 bg-primary">
+        <div class="container">
+            <h1  class="display-4"><marquee behaviour="alternate" direction="left"scrollamount="22"><font color="#b21a80"> Hello, I'm Yash Rajesh</h1></marquee></font>
+            <p class="lead">A passionate Computer Science graduate with skills in web development and software engineering.</p>
+			
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-5 bg-light">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets\images/yash.JPG" alt="Your photo" class="img-fluid rounded-circle">
+                </div>
+	               <div class="col-md-6" 
+				   <h1 style="color: violet; font-size: 2.5rem;">About Me</h1>
+
+                    
+                    <p><h3><font color="#1abc9c">Hello, I’m Yash Rajesh, a passionate and enthusiastic Computer Science Engineering graduate with a strong foundation in programming, web development, and problem-solving.My technical expertise are HTML, CSS, JavaScript, Bootstrap, Figma, MySQL, MongoDB, Java, Python, C++, Data Structures, and familiarity with TypeScript, React, Node.js, Git, and GitHub. 
+                    I am deeply interested in full-stack development and continuously strive to enhance my skills in building robust and scalable applications. As someone who enjoys exploring innovative technologies and solving challenges, I am eager to apply my knowledge in creating impactful solutions.
+    In addition to my technical abilities, I bring a creative perspective as a musician and designer.
+   </h3></p></font> 
+  <a href="assets/resume.pdf" class="btn btn-success btn-lg" download>Download Resume</a>
+</div>
+            </div>
+        </div>
+	
+<!-- Skills Section -->
+  
+<style>
+  .progress-bar {
+    transition: width 2s ease-in-out;
+  }
+</style>
+<!-- Skills Section -->
+<!-- Skills Section -->
+<section id="skills" class="py-5">
+  <div class="container">
+    <h1 class="text-center mb-5"><font color="violet">Skills</font></h1>
+    <div class="row text-start">
+      <!-- Frontend Skills -->
+      <div class="col-md-4">
+        <h5 class="mb-4"><i class="fas fa-laptop-code"></i><font color="Darkblue">  Frontend</font></h5>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fab fa-html5 text-danger"></i> <font color="red">HTML</font>
+            <div class="progress mt-2" title="HTML - 70%">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fab fa-css3-alt text-primary"></i> <font color="red">CSS</font>
+            <div class="progress mt-2" title="CSS - 70%">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fab fa-js-square text-warning"></i> <font color="red">JavaScript</font>
+            <div class="progress mt-2" title="JavaScript - 70%">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fab fa-bootstrap text-primary"></i> <font color="red"> Bootstrap</font>
+            <div class="progress mt-2" title="Bootstrap - 70%">
+              <div
+                class="progress-bar bg-purple"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fab fa-react text-info"></i> <font color="red">React</font>
+            <div class="progress mt-2" title="React - 70%">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Backend Skills -->
+      <div class="col-md-4">
+        <h5 class="mb-4"><i class="fas fa-server"></i> <font color="goldenrod">Backend</font></h5>
+        <ul class="list-unstylgoldenrod>
+          <li class="mb-3">
+            <i class="fab fa-node text-green"></i> <font color="red">Node.js</font>
+            <div class="progress mt-2" title="Node.js - 60%">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 60%"
+                aria-valuenow="60"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                60%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fas fa-database text-primary"></i> <font color="red">MySQL</font>
+            <div class="progress mt-2" title="MySQL - 70%">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>>
+          </li>
+          <li class="mb-3">
+            <i class="fas fa-leaf text-success"></i> <font color="red">MongoDB</font>
+            <div class="progress mt-2" title="MongoDB - 70%">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fas fa-code text-secondary"></i> <font color="red">C++</font>
+            <div class="progress mt-2" title="C++ - 70%">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fab fa-java text-danger"></i> <font color="red">Java</font>
+            <div class="progress mt-2" title="Java - 70%">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+	</div>
+          
+        </ul>
+      </div>
+
+      <!-- Other Skills -->
+      <div class="col-md-4">
+        <h5 class="mb-4"><i class="fas fa-tools"></i><font color="violet"> Other Skills</font></h5>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fab fa-git-alt text-orange"></i> <font color="red"> Git & GitHub</font>
+            <div class="progress mt-2" title="Git & GitHub - 70%">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+          </li>
+          <li class="mb-3">
+            <i class="fas fa-project-diagram text-purple"></i> <font color="red">Agile Methodology</font>
+            <div class="progress mt-2" title="Agile Methodology - 70%">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 70%"
+                aria-valuenow="70"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                70%
+              </div>
+            </div>
+	<li class="mb-3">
+  <i class="fas fa-database text-secondary"></i> <font color="red">Data Structures and Algorithms</font>
+  <div class="progress mt-2" title="Data Structures and Algorithms - 70%">
+    <div
+      class="progress-bar bg-info"
+      role="progressbar"
+      style="width: 70%"
+      aria-valuenow="70"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      70%
+    </div>
+  </div>
+</li>
+
+  <li class="mb-3">
+  <i class="fas fa-paint-brush text-secondary"></i> <font color="red">Figma</font>
+  <div class="progress mt-2" title="Figma - 70%">
+    <div
+      class="progress-bar bg-info"
+      role="progressbar"
+      style="width: 70%"
+      aria-valuenow="70"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      70%
+    </div>
+  </div>
+</li>
+
+<li class="mb-3">
+  <i class="fas fa-file-code text-secondary"></i> <font color="red">TypeScript</font>
+  <div class="progress mt-2" title="TypeScript - 60%">
+    <div
+      class="progress-bar bg-info"
+      role="progressbar"
+      style="width: 70%"
+      aria-valuenow="70"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      70%
+    </div>
+  </div>
+</li>
+
+</li>
+
+</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+ <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h1 class="text-center"><font color="violet">Projects</font></h1>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets\images/travel.JPG" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title"><font color="blue">TRAVEL AND TOURISM MANAGEMENT SYSTEM</font></h5>
+                            <p class="card-text"><font color="#DC143C">A Travel and Tourism Management System designed to streamline the travel booking process.</font></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets\images/ums.JPG" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title"><font color="goldenrod">UNIVERSITY MANAGEMENT SYSTEM</font></h5>
+                            <p class="card-text"><font color="#FFD700">A system to manage student enrollment, faculty management, and course allocation.</font></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets\images/bank.JPG" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title"><font color="green">BANK MANAGEMENT SYSTEM</font></h5>
+                            <p class="card-text"><font color="#7851A9">Automates banking tasks like managing customer accounts and processing transactions.</font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <style>
+        .btn-glow {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Contact Me</h1>
+        <div class="text-center">
+            <form action="https://formspree.io/f/xrbgraqj" method="POST" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label">
+                        <i class="fas fa-user"></i> Your Name
+                    </label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">
+                        <i class="fas fa-envelope"></i> Your Email
+                    </label>
+                    <input type="email" class="form-control" id="email" name="_replyto" placeholder="Enter your email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">
+                        <i class="fas fa-comment"></i> Your Message
+                    </label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+                    <div class="invalid-feedback">Please write your message.</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-glow">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+		<div class="text-center mt-4">
+  
+</div>
+
+    </div>
+
+    <!-- Bootstrap JS (for form validation and responsiveness) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS for Validation -->
+    <script>
+        // Bootstrap validation
+        (function () {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>
+<br>
+<p>
+<strong><i class="fas fa-envelope"></i> Email:</strong> <a href="mailto:monuyashrajesh@gmail.com">monuyashrajesh@gmail.com</a>
+</p>
+<p><strong><i class="fas fa-phone-alt"></i> Mobile no:</strong><a href="tel:+918839141471">8839141471</a>
+    </p>
+    <p>
+<strong><i class="fab fa-linkedin"></i> LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-rajesh2000" target="_blank">LinkedIn Profile</a>
+</p>
+<p>
+<strong><i class="fab fa-github"></i> GitHub:</strong><a href="https://github.com/yashrajesh101" target="_blank">GitHub Profile</a>
+</p>
+
+<style>
+
+
+
+i {
+  color: #0077b5; 
+  margin-right: 5px; 
+}
+</style>
+
+<!-- Theme Toggle Script -->
+    <script>
+        const toggleButton = document.getElementById("theme-toggle");
+        const body = document.getElementById("body");
+        const navbar = document.getElementById("navbar");
+        const themeButton = document.getElementById("theme-toggle");
+
+        themeButton.addEventListener("click", function () {
+            body.classList.toggle("bg-dark");
+            body.classList.toggle("text-light");
+            navbar.classList.toggle("navbar-dark");
+            navbar.classList.toggle("navbar-light");
+            navbar.classList.toggle("bg-dark");
+        });
+    </script>
+	
+</div>
+<div class="map-container">
+<iframe 
+   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.5442877025307!2d77.35300747477797!3d23.283056206558452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c67c7f7a7aa11%3A0xab4cab9a2579f900!2sData%20Colony%20Rd%2C%20Data%20Colony%2C%20Lalghati%2C%20Bhopal%2C%20Madhya%20Pradesh%20462030!5e1!3m2!1sen!2sin!4v1738402918478!5m2!1sen!2sin" width="600" height="450" style
+
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+<style>
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+
+</div>
+</section>
+
+<!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Yash Rajesh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+ <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
