@@ -808,17 +808,21 @@ i {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-
-<!-- Hire Me Button -->
 <a 
   href="#contact" 
+  id="hire-me-btn" <!-- Added ID -->
   class="btn btn-primary btn-lg position-fixed bottom-0 end-0 m-3" 
-  style="z-index: 1000;"
+  style="display: none; z-index: 1000;" <!-- Hide by default -->
 >
   <i class="fas fa-paper-plane"></i> Hire Me
 </a>
+	<style>
+  #hire-me-btn {
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+	hireMeBtn.style.display = "block";
+hireMeBtn.style.opacity = "1"; // Add if using fade-in
 
-
-	
 </body>
 </html>
