@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Yash Rajesh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Loader Styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+        }
+
+        .loader-spinner {
+            width: 4rem;
+            height: 4rem;
+            border: 0.5em solid #007bff;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner 0.75s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loader-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #007bff;
+            transition: width 3s linear;
+        }
+
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        .content {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .loaded .content {
+            opacity: 1;
+        }
+
+        .loaded #loader {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Dark Mode Text Colors */
+        .dark-mode {
+            background-color: #282c34;
+            color: #ffffff;
+        }
+
+        .dark-mode .text-muted {
+            color: #a0a0a0 !important;
+        }
+
+        .dark-mode .navbar-dark .navbar-brand,
+        .dark-mode .navbar-dark .nav-link {
+            color: #ffffff !important;
+        }
+
+        .dark-mode .education-card {
+            background-color: #2d2d2d;
+            color: #ffffff;
+        }
+
+        .dark-mode .education-card h3,
+        .dark-mode .education-card h5,
+        .dark-mode .education-card .badge {
+            color: #ffffff !important;
+        }
+
+        .dark-mode .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 5px;
+        }
+
+        .education-card {
+            position: relative;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: all 0.3s ease;
+            width: 45%;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .left { left: 0; }
+        .right { left: 55%; }
+
+        .icon-container {
+            position: absolute;
+            z-index: 1;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 20px;
+            right: -30px;
+        }
+
+        .left .icon-container { left: -30px; right: auto; }
+
+        .skill-meter {
+            height: 8px;
+            border-radius: 4px;
+            background: #e9ecef;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 1s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .education-card {
+                width: 100%;
+                left: 0 !important;
+                margin-left: 0;
+            }
+            .icon-container { left: -30px !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Wrap all content in a content div -->
+    <div class="content">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn btn-secondary theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-user-graduate"></i> Yash Rajesh
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">
+                                <i class="fas fa-arrow-left"></i> Back to Portfolio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Education Timeline -->
+        <div class="container py-5">
+            <h1 class="text-center mb-5" style="color: var(--primary-color);">Educational Journey</h1>
+            <div class="timeline">
+                <!-- B.Tech -->
+                <div class="education-card left">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3 style="color: var(--primary-color);">B.Tech in Computer Science Engineering</h3>
+                        <h5 class="text-muted">Truba Institute of Information Technology, Bhopal</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge bg-primary">2021 - 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BBA -->
+                <div class="education-card right">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3 style="color: var(--primary-color);">BBA in Marketing</h3>
+                        <h5 class="text-muted">Indira Priyadarshini College, Bhopal</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge bg-primary">2020 - 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diploma -->
+                <div class="education-card left">
+                    <div class="icon-container">
+                        <i class="fas fa-book-open fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3 style="color: var(--primary-color);">Diploma in Plastic Mould Technology</h3>
+                        <h5 class="text-muted">Central Institute of Petrochemicals Engineering & Technology, Bhopal</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge bg-primary">2019 - 2021</span>
+                        </div>
+                        <div class="text-end mt-4">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary -->
+                <div class="education-card right">
+                    <div class="icon-container">
+                        <i class="fas fa-school fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3 style="color: var(--primary-color);">Secondary (X)</h3>
+                        <h5 class="text-muted">Army Public School, Bhopal</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge bg-primary">2015 - 2016</span>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h6>Activities:</h6>
+                                <ul>
+                                    <li>Science Club Member</li>
+                                    <li>Computer Club Member</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Achievements:</h6>
+                                <ul>
+                                    <li>Member of School Football Team</li>
+                                    <li>Member of School Music Band</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-light py-4">
+            <div class="container text-center">
+                <p>&copy; 2025 Yash Rajesh. All rights reserved.</p>
+                <div class="social-links mt-3">
+                    <a href="https://linkedin.com/in/yash-rajesh2000" class="text-light mx-2">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/yashrajesh101" class="text-light mx-2">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Loader handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            const progressBar = document.querySelector('.loader-progress-bar');
+
+            // Start progress bar animation
+            progressBar.style.width = '100%';
+
+            // Hide loader after 3 seconds
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 3000);
+        });
+
+        // Theme Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            toggleButton.querySelector('i').classList.toggle('fa-moon');
+            toggleButton.querySelector('i').classList.toggle('fa-sun');
+        });
+
+        // Scroll Animation
+        const cards = document.querySelectorAll('.education-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
