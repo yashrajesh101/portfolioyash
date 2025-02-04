@@ -192,13 +192,7 @@
             z-index: 1000;
         }
 
-        @media (max-width: 768px) {
-            .timeline::after { left: 31px; }
-            .education-card {
-                width: 100%;
-                left: 0 !important;
-                margin-left: 0;
-            }
+
             @media (max-width: 768px) {
     .timeline::after {
         left: 31px; /* Adjust timeline line position for smaller screens */
@@ -295,6 +289,20 @@
         .navbar-brand .glyphicon {
             margin-right: 10px;
         }
+
+        /* Hover effect */
+.education-card:hover h3,
+.education-card:hover h5,
+.education-card:hover .badge {
+    color: var(--accent-color) !important; /* Change to accent color on hover */
+}
+
+/* Click effect */
+.education-card:active h3,
+.education-card:active h5,
+.education-card:active .badge {
+    color: var(--primary-color) !important; /* Change to primary color on click */
+}
     </style>
 </head>
 <body>
