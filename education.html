@@ -7,6 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #ffc107; /* Yellow */
+            --background-light: #ffffff; /* White */
+            --background-dark: #282c34; /* Dark */
+            --text-light: #000000; /* Black */
+            --text-dark: #ffffff; /* White */
+            --glow-color: rgba(0, 123, 255, 0.7); /* Glowing effect */
+        }
+
         /* Loader Styles */
         #loader {
             position: fixed;
@@ -26,7 +37,7 @@
         .loader-spinner {
             width: 4rem;
             height: 4rem;
-            border: 0.5em solid #007bff;
+            border: 0.5em solid var(--primary-color);
             border-right-color: transparent;
             border-radius: 50%;
             animation: spinner 0.75s linear infinite;
@@ -44,7 +55,7 @@
         .loader-progress-bar {
             width: 0%;
             height: 100%;
-            background: #007bff;
+            background: var(--primary-color);
             transition: width 3s linear;
         }
 
@@ -66,10 +77,10 @@
             pointer-events: none;
         }
 
-        /* Dark Mode Text Colors */
+        /* Dark Mode Styles */
         .dark-mode {
-            background-color: #282c34;
-            color: #ffffff;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
         }
 
         .dark-mode .text-muted {
@@ -78,23 +89,23 @@
 
         .dark-mode .navbar-dark .navbar-brand,
         .dark-mode .navbar-dark .nav-link {
-            color: #ffffff !important;
+            color: var(--text-dark) !important;
         }
 
         .dark-mode .education-card {
             background-color: #2d2d2d;
-            color: #ffffff;
+            color: var(--text-dark);
         }
 
         .dark-mode .education-card h3,
         .dark-mode .education-card h5,
         .dark-mode .education-card .badge {
-            color: #ffffff !important;
+            color: var(--text-dark) !important;
         }
 
         .dark-mode .footer {
             background-color: #1a1a1a;
-            color: #ffffff;
+            color: var(--text-dark);
         }
 
         /* Timeline Styles */
@@ -119,7 +130,7 @@
 
         .education-card {
             position: relative;
-            background-color: white;
+            background-color: var(--background-light);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin: 40px 0;
@@ -129,7 +140,7 @@
 
         .education-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px var(--glow-color);
         }
 
         .left { left: 0; }
@@ -139,7 +150,7 @@
             position: absolute;
             z-index: 1;
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-dark);
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -148,6 +159,7 @@
             justify-content: center;
             top: 20px;
             right: -30px;
+            box-shadow: 0 0 10px var(--glow-color);
         }
 
         .left .icon-container { left: -30px; right: auto; }
@@ -180,6 +192,26 @@
                 margin-left: 0;
             }
             .icon-container { left: -30px !important; }
+        }
+
+        /* Headings and Text */
+        h1, h3 {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+
+        h5 {
+            color: var(--secondary-color);
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+        }
+
+        .footer {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
         }
     </style>
 </head>
@@ -219,7 +251,7 @@
 
         <!-- Education Timeline -->
         <div class="container py-5">
-            <h1 class="text-center mb-5" style="color: var(--primary-color);">Educational Journey</h1>
+            <h1 class="text-center mb-5">Educational Journey</h1>
             <div class="timeline">
                 <!-- B.Tech -->
                 <div class="education-card left">
@@ -227,10 +259,10 @@
                         <i class="fas fa-graduation-cap fa-2x"></i>
                     </div>
                     <div class="card-body p-4">
-                        <h3 style="color: var(--primary-color);">B.Tech in Computer Science Engineering</h3>
+                        <h3>B.Tech in Computer Science Engineering</h3>
                         <h5 class="text-muted">Truba Institute of Information Technology, Bhopal</h5>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge bg-primary">2021 - 2024</span>
+                            <span class="badge">2021 - 2024</span>
                         </div>
                     </div>
                 </div>
@@ -241,10 +273,10 @@
                         <i class="fas fa-graduation-cap fa-2x"></i>
                     </div>
                     <div class="card-body p-4">
-                        <h3 style="color: var(--primary-color);">BBA in Marketing</h3>
+                        <h3>BBA in Marketing</h3>
                         <h5 class="text-muted">Indira Priyadarshini College, Bhopal</h5>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge bg-primary">2020 - 2022</span>
+                            <span class="badge">2020 - 2022</span>
                         </div>
                     </div>
                 </div>
@@ -255,13 +287,10 @@
                         <i class="fas fa-book-open fa-2x"></i>
                     </div>
                     <div class="card-body p-4">
-                        <h3 style="color: var(--primary-color);">Diploma in Plastic Mould Technology</h3>
+                        <h3>Diploma in Plastic Mould Technology</h3>
                         <h5 class="text-muted">Central Institute of Petrochemicals Engineering & Technology, Bhopal</h5>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge bg-primary">2019 - 2021</span>
-                        </div>
-                        <div class="text-end mt-4">
-                            
+                            <span class="badge">2019 - 2021</span>
                         </div>
                     </div>
                 </div>
@@ -272,10 +301,10 @@
                         <i class="fas fa-school fa-2x"></i>
                     </div>
                     <div class="card-body p-4">
-                        <h3 style="color: var(--primary-color);">Secondary (X)</h3>
+                        <h3>Secondary (X)</h3>
                         <h5 class="text-muted">Army Public School, Bhopal</h5>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge bg-primary">2015 - 2016</span>
+                            <span class="badge">2015 - 2016</span>
                         </div>
                         <div class="row mt-4">
                             <div class="col-md-6">
@@ -299,7 +328,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-dark text-light py-4">
+        <footer class="footer py-4">
             <div class="container text-center">
                 <p>&copy; 2025 Yash Rajesh. All rights reserved.</p>
                 <div class="social-links mt-3">
