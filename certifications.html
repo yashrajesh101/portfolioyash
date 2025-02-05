@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications & Trainings - Yash Rajesh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
+    
+    <link rel="icon" type="image/png" href="">
+
+	<style>
+        /* Reuse the same styles from the Education page */
+        :root {
+            --primary-color: #6a11cb; /* Purple */
+            --secondary-color: #2575fc; /* Blue */
+            --accent-color: #ff7e5f; /* Coral */
+            --background-light: #f9f9f9; /* Light Gray */
+            --background-dark: #1a1a1a; /* Dark */
+            --text-light: #000000; /* Black */
+            --text-dark: #ffffff; /* White */
+            --glow-color: rgba(106, 17, 203, 0.7); /* Glowing effect */
+        }
+
+        /* Loader Styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+        }
+
+        .loader-spinner {
+            width: 4rem;
+            height: 4rem;
+            border: 0.5em solid var(--accent-color);
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner 0.75s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loader-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 3s linear;
+        }
+
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        .content {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .loaded .content {
+            opacity: 1;
+        }
+
+        .loaded #loader {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .dark-mode .text-muted {
+            color: #a0a0a0 !important;
+        }
+
+        .dark-mode .navbar-dark .navbar-brand,
+        .dark-mode .navbar-dark .nav-link {
+            color: var(--text-dark) !important;
+        }
+
+        .dark-mode .certification-card {
+            background-color: #2d2d2d;
+            color: var(--text-dark);
+        }
+
+        .dark-mode .certification-card h3,
+        .dark-mode .certification-card h5,
+        .dark-mode .certification-card .badge {
+            color: var(--text-dark) !important;
+        }
+
+        .dark-mode .footer {
+            background-color: #1a1a1a;
+            color: var(--text-dark);
+        }
+
+        /* Certification Card Styles */
+        .certification-card {
+            position: relative;
+            background-color: var(--background-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: all 0.3s ease;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .certification-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--glow-color);
+        }
+
+        .certification-card h3 {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+
+        .certification-card h5 {
+            color: var(--secondary-color);
+        }
+
+        .certification-card .badge {
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+        }
+
+        .certification-card .icon-container {
+            position: absolute;
+            z-index: 1;
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .certification-card .icon-container i {
+            font-size: 1.5rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .certification-card {
+                width: 90%;
+            }
+
+            .certification-card .icon-container {
+                width: 50px;
+                height: 50px;
+                top: -25px;
+            }
+
+            .certification-card .icon-container i {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .certification-card {
+                width: 95%;
+            }
+        }
+
+        /* Gradient Background */
+        body {
+            background: linear-gradient(135deg, var(--background-light), #e6e6e6);
+            min-height: 100vh;
+        }
+
+        .dark-mode body {
+            background: linear-gradient(135deg, var(--background-dark), #121212);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer .social-links a {
+            color: var(--text-dark);
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Wrap all content in a content div -->
+    <div class="content">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn btn-secondary theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="glyphicon glyphicon-certificate"></span> Yash Rajesh
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">
+                                <i class="fas fa-arrow-left"></i> Back to Portfolio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Certifications & Trainings Section -->
+        <div class="container py-5">
+            <h1 class="text-center mb-5"><font color="violet">Certifications & Trainings</font></h1>
+            <div class="timeline">
+                <!-- Certification 1 -->
+                <div class="certification-card">
+                    <div class="icon-container">
+                        <i class="fas fa-certificate fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3>Full Stack Web Development using Java</h3>
+                        <h5 class="text-muted">By Apponix Technologies Banglore</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge">Issued: Jan 2025</span>
+                        </div>
+                        <p class="mt-3">Completed a comprehensive course covering HTML, CSS, JavaScript, React, Node.js, MongoDB and Java.</p>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card">
+                    <div class="icon-container">
+                        <i class="fas fa-certificate fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3>Introduction to Machine learning</h3>
+                        <h5 class="text-muted">National Skill Development Corporation</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge">Issued: Aug 2023</span>
+                        </div>
+                        <p class="mt-3">Learned data analysis, visualization, and machine learning using Python libraries like Pandas, Matplotlib, and Scikit-learn.</p>
+                    </div>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="certification-card">
+                    <div class="icon-container">
+                        <i class="fas fa-certificate fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3></h3>
+                        <h5 class="text-muted"> Udemy</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge">Issued: May 2020</span>
+                        </div>
+                        <p class="mt-3">Gained foundational knowledge of Python web development .</p>
+                    </div>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="certification-card">
+                    <div class="icon-container">
+                        <i class="fas fa-certificate fa-2x"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h3></h3>
+                        <h5 class="text-muted">Mysql command line by Cognitive class</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge">Issued: Dec 2024</span>
+                        </div>
+                        <p class="mt-3">Learned Mysql command line.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer py-4">
+            <div class="container text-center">
+                <p>&copy; 2025 Yash Rajesh. All rights reserved.</p>
+                <div class="social-links mt-3">
+                    <a href="https://linkedin.com/in/yash-rajesh2000" class="text-light mx-2">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/yashrajesh101" class="text-light mx-2">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Loader handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            const progressBar = document.querySelector('.loader-progress-bar');
+
+            // Start progress bar animation
+            progressBar.style.width = '100%';
+
+            // Hide loader after 3 seconds
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 3000);
+        });
+
+        // Theme Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            toggleButton.querySelector('i').classList.toggle('fa-moon');
+            toggleButton.querySelector('i').classList.toggle('fa-sun');
+        });
+
+        // Scroll Animation
+        const cards = document.querySelectorAll('.certification-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
