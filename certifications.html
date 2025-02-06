@@ -8,10 +8,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
     <link rel="shortcut icon" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
-    
     <link rel="icon" type="image/png" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/cer.png?raw=true">
 
-	<style>
+    <style>
+        /* Loader Styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 1s linear infinite;
+        }
+
+        .loader::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(
+                #ff6b6b,
+                #4ecdc4,
+                #45b7d1,
+                #96ceb4,
+                #ffeead,
+                #ff6b6b
+            );
+            -webkit-mask: 
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask: 
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .loader::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 20%, 
+                rgba(255, 255, 255, 0.9) 10%, 
+                rgba(255, 255, 255, 0.1) 50%);
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.9;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
         /* Reuse the same styles from the Education page */
         :root {
             --primary-color: #6a11cb; /* Purple */
@@ -23,67 +97,6 @@
             --text-dark: #ffffff; /* White */
             --glow-color: rgba(106, 17, 203, 0.7); /* Glowing effect */
         }
-.loader {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 1s linear infinite;
-}
-
-.loader::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  padding: 4px;
-  background: conic-gradient(
-    #ff6b6b,
-    #4ecdc4,
-    #45b7d1,
-    #96ceb4,
-    #ffeead,
-    #ff6b6b
-  );
-  -webkit-mask: 
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask: 
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.loader::after {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 20%, 
-    rgba(255, 255, 255, 0.9) 10%, 
-    rgba(255, 255, 255, 0.1) 50%);
-  animation: shimmer 1.5s ease-in-out infinite;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shimmer {
-  0%, 100% {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
 
         /* Dark Mode Styles */
         .dark-mode {
@@ -233,14 +246,11 @@
 <body>
     <!-- Loader -->
     <div id="loader">
-        <div class="loader-spinner"></div>
-        <div class="loader-progress">
-            <div class="loader-progress-bar"></div>
-        </div>
+        <div class="loader"></div>
     </div>
 
     <!-- Wrap all content in a content div -->
-    <div class="content">
+    <div class="content" style="display: none;">
         <!-- Theme Toggle -->
         <button id="theme-toggle" class="btn btn-secondary theme-toggle">
             <i class="fas fa-moon"></i>
@@ -351,15 +361,13 @@
         // Loader handling
         document.addEventListener('DOMContentLoaded', () => {
             const loader = document.getElementById('loader');
-            const progressBar = document.querySelector('.loader-progress-bar');
+            const content = document.querySelector('.content');
 
-            // Start progress bar animation
-            progressBar.style.width = '100%';
-
-            // Hide loader after 3 seconds
+            // Hide loader and show content after 4 seconds
             setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 3000);
+                loader.style.display = 'none';
+                content.style.display = 'block';
+            }, 4000);
         });
 
         // Theme Toggle
