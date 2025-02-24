@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Yash Rajesh</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="icon" type="image/png" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
-    
     <link rel="shortcut icon" href="https://github.com/yashrajesh101/portfolioyash/blob/myport/edu.png?raw=true">
-</head>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> <!-- For Glyphicon -->
     <style>
         :root {
@@ -27,8 +22,6 @@
         }
 
         /* Loader Styles */
-
-                /* Loader Styles */
         #loader {
             position: fixed;
             top: 0;
@@ -87,9 +80,6 @@
             pointer-events: none;
         }
 
-
-
-
         /* Dark Mode Styles */
         .dark-mode {
             background-color: var(--background-dark);
@@ -121,34 +111,16 @@
             color: var(--text-dark);
         }
 
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 5px;
-        }
-
+        /* Education Card Styles */
         .education-card {
-            position: relative;
             background-color: var(--background-light);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
+            margin: 20px auto;
+            padding: 20px;
             transition: all 0.3s ease;
-            width: 45%;
+            width: 80%;
+            max-width: 800px;
         }
 
         .education-card:hover {
@@ -156,12 +128,7 @@
             box-shadow: 0 8px 25px var(--glow-color);
         }
 
-        .left { left: 0; }
-        .right { left: 55%; }
-
         .icon-container {
-            position: absolute;
-            z-index: 1;
             background-color: var(--primary-color);
             color: var(--text-dark);
             width: 60px;
@@ -170,12 +137,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            top: 20px;
-            right: -30px;
+            margin: 0 auto 20px;
             box-shadow: 0 0 10px var(--glow-color);
         }
-
-        .left .icon-container { left: -30px; right: auto; }
 
         .skill-meter {
             height: 8px;
@@ -196,133 +160,6 @@
             right: 20px;
             z-index: 1000;
         }
-
-        /* Media Queries for Responsive Adjustments */
-@media (max-width: 992px) {
-    .education-card {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .right { left: 10%; }
-}
-
-
-     .card-body {
-        padding: 20px !important;
-    }
-    
-    .badge {
-        font-size: 0.8rem;
-    }
-    
-    .footer p {
-        font-size: 0.9rem;
-    }
-    
-    .social-links a i {
-        font-size: 1.5rem !important;
-    }
-}
-@media (max-width: 768px) {
-    .timeline::before {
-        display: none !important; /* Hide the timeline line */
-    }
-
-    .timeline {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center the content */
-    }
-
-    .education-card {
-        width: 90%;
-        margin: 20px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .icon-container {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -30px; /* Adjust icon position */
-    }
-
-    .education-card::after {
-        display: none; /* Remove any extra lines */
-    }
-}
-
-
-        @media (max-width: 576px) {
-    .timeline::after {
-        left: 15px;
-    }
-    
-    .education-card {
-        width: 95%;
-        margin-left: 30px;
-    }
-    
-    .card-body .row {
-        flex-direction: column;
-    }
-    
-    .card-body .col-md-6 {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-    
-    .theme-toggle {
-        top: 15px;
-        right: 15px;
-        padding: 5px 10px;
-    }
-    
-    .footer {
-        padding: 20px 0 !important;
-    }
-}
-
-@media (max-width: 400px) {
-    h1 {
-        font-size: 1.6rem;
-    }
-    
-    h3 {
-        font-size: 1.2rem;
-    }
-    
-    h5 {
-        font-size: 1rem;
-    }
-    
-    .education-card {
-        margin-left: 20px;
-    }
-    
-    .icon-container {
-        width: 40px;
-        height: 40px;
-        left: -20px !important;
-    }
-    
-    .card-body ul {
-        padding-left: 15px;
-    }
-    
-    .card-body li {
-        font-size: 0.9rem;
-    }
-}
-
-
 
         /* Headings and Text */
         h1, h3 {
@@ -350,18 +187,18 @@
         }
 
         /* Hover effect */
-.education-card:hover h3,
-.education-card:hover h5,
-.education-card:hover .badge {
-    color: var(--accent-color) !important; /* Change to accent color on hover */
-}
+        .education-card:hover h3,
+        .education-card:hover h5,
+        .education-card:hover .badge {
+            color: var(--accent-color) !important;
+        }
 
-/* Click effect */
-.education-card:active h3,
-.education-card:active h5,
-.education-card:active .badge {
-    color: var(--primary-color) !important; /* Change to primary color on click */
-}
+        /* Click effect */
+        .education-card:active h3,
+        .education-card:active h5,
+        .education-card:active .badge {
+            color: var(--primary-color) !important;
+        }
     </style>
 </head>
 <body>
@@ -398,78 +235,77 @@
             </div>
         </nav>
 
-        <!-- Education Timeline -->
+        <!-- Education Section -->
         <div class="container py-5">
             <h1 class="text-center mb-5"><font color="violet">Educational Journey</font></h1>
-            <div class="timeline">
-                <!-- B.Tech -->
-                <div class="education-card left">
-                    <div class="icon-container">
-                        <i class="fas fa-graduation-cap fa-2x"></i>
-                    </div>
-                    <div class="card-body p-4">
-                        <h3 align="right"> B.Tech in Computer Science Engineering</h3>
-                        <h5 class="text-muted">Truba Institute of Information Technology, Bhopal</h5>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge">2021 - 2024</span>
-                        </div>
+            
+            <!-- B.Tech -->
+            <div class="education-card">
+                <div class="icon-container">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                </div>
+                <div class="card-body p-4">
+                    <h3 align="center">B.Tech in Computer Science Engineering</h3>
+                    <h5 class="text-muted text-center">Truba Institute of Information Technology, Bhopal</h5>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <span class="badge">2021 - 2024</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- BBA -->
-                <div class="education-card right">
-                    <div class="icon-container">
-                        <i class="fas fa-graduation-cap fa-2x"></i>
-                    </div>
-                    <div class="card-body p-4">
-                        <h3>BBA in Marketing</h3>
-                        <h5 class="text-muted">Indira Priyadarshini College, Bhopal</h5>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge">2020 - 2022</span>
-                        </div>
+            <!-- BBA -->
+            <div class="education-card">
+                <div class="icon-container">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                </div>
+                <div class="card-body p-4">
+                    <h3 align="center">BBA in Marketing</h3>
+                    <h5 class="text-muted text-center">Indira Priyadarshini College, Bhopal</h5>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <span class="badge">2020 - 2022</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Diploma -->
-                <div class="education-card left">
-                    <div class="icon-container">
-                        <i class="fas fa-book-open fa-2x"></i>
-                    </div>
-                    <div class="card-body p-4">
-                        <h3 align=""right">  Diploma in Plastic Mould Technology</h3>
-                        <h5 class="text-muted">Central Institute of Petrochemicals Engineering & Technology, Bhopal</h5>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge">2019 - 2021</span>
-                        </div>
+            <!-- Diploma -->
+            <div class="education-card">
+                <div class="icon-container">
+                    <i class="fas fa-book-open fa-2x"></i>
+                </div>
+                <div class="card-body p-4">
+                    <h3 align="center">Diploma in Plastic Mould Technology</h3>
+                    <h5 class="text-muted text-center">Central Institute of Petrochemicals Engineering & Technology, Bhopal</h5>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <span class="badge">2019 - 2021</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Secondary -->
-                <div class="education-card right">
-                    <div class="icon-container">
-                        <i class="fas fa-school fa-2x"></i>
+            <!-- Secondary -->
+            <div class="education-card">
+                <div class="icon-container">
+                    <i class="fas fa-school fa-2x"></i>
+                </div>
+                <div class="card-body p-4">
+                    <h3 align="center">Secondary (X)</h3>
+                    <h5 class="text-muted text-center">Army Public School, Bhopal</h5>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <span class="badge">2015 - 2016</span>
                     </div>
-                    <div class="card-body p-4">
-                        <h3> Secondary (X)</h3>
-                        <h5 class="text-muted">Army Public School, Bhopal</h5>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="badge">2015 - 2016</span>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6>Activities:</h6>
+                            <ul>
+                                <li>Science Club Member</li>
+                                <li>Computer Club Member</li>
+                            </ul>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h6>Activities:</h6>
-                                <ul>
-                                    <li>Science Club Member</li>
-                                    <li>Computer Club Member</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Achievements:</h6>
-                                <ul>
-                                    <li>Member of School Football Team</li>
-                                    <li>Member of School Music Band</li>
-                                </ul>
-                            </div>
+                        <div class="col-md-6">
+                            <h6>Achievements:</h6>
+                            <ul>
+                                <li>Member of School Football Team</li>
+                                <li>Member of School Music Band</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
