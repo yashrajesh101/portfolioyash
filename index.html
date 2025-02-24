@@ -239,8 +239,15 @@
                 padding: 2rem;
             }
         }
-        .typing-container {
+	            .typing-container {
             font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rainbow 3s infinite linear;
+            filter: drop-shadow(0 0 5px white);
         }
 
         .cursor {
@@ -248,11 +255,17 @@
             width: 8px;
             height: 24px;
             background-color: white;
+            margin-left: 5px;
             animation: blink 0.6s infinite;
         }
 
         @keyframes blink {
             50% { opacity: 0; }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
  </style>
@@ -349,28 +362,27 @@
             <h1  class="display-4"><marquee behaviour="alternate" direction="left"scrollamount="15"><font color="#b21a80"> Hello, I'm Yash Rajesh</h1></marquee></font>
             <p class="typing-container" id="text"></p><span class="cursor"></span>
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-    const text = "A passionate Computer Science graduate with expertise in web development and software engineering.";
-    let index = 0;
-    const speed = 120; // Typing speed in milliseconds
-    const cursor = document.querySelector(".cursor");
 
-    function type() {
-        if (index < text.length) {
-            document.getElementById("text").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-        } else {
-            // Hide cursor after typing
-            cursor.style.display = "none";
-        }
-    }
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "A passionate Computer Science graduate with expertise in web development and software engineering.";
+            let index = 0;
+            const speed = 50; // Typing speed in milliseconds
+            const cursor = document.querySelector(".cursor");
 
-    type(); // Start typing animation
-});
+            function type() {
+                if (index < text.length) {
+                    document.getElementById("text").innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                } else {
+                    // Hide cursor after typing
+                    cursor.style.display = "none";
+                }
+            }
 
-        
-    </script>
+            type(); // Start typing animation
+        });
+</script>
 
   </div>
     </header>
