@@ -209,37 +209,46 @@
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.8rem;
-        margin-bottom: 30px !important;
+    .timeline {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
-    h3 {
-        font-size: 1.4rem;
-        line-height: 1.3;
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #007bff; /* Adjust color as needed */
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
-    
-    h5 {
-        font-size: 1.1rem;
-    }
-    
+
     .education-card {
         width: 90%;
         margin: 30px 0;
+        position: relative;
+        text-align: center; /* Center align content */
     }
-    
+
     .icon-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px; /* Adjust icon position */
         width: 50px;
         height: 50px;
-        top: 15px;
-        left: -25px !important;
     }
-    
+
     .icon-container i {
         font-size: 1.5rem !important;
     }
-    
-    .card-body {
+}
+
+     .card-body {
         padding: 20px !important;
     }
     
