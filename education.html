@@ -225,20 +225,20 @@
         font-size: 1.5rem !important;
     }
 }
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
     .timeline {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-left: 0; /* Remove unwanted left padding */
+        padding: 0;
     }
 
     .timeline::before {
         content: "";
         position: absolute;
-        width: 4px;
-        background-color: #007bff; /* Adjust color as needed */
+        width: 3px; /* Adjust width for a clean look */
+        background-color: #007bff; /* Change color if needed */
         top: 0;
         bottom: 0;
         left: 50%;
@@ -249,20 +249,26 @@
         width: 90%;
         margin: 30px 0;
         position: relative;
-        text-align: center; /* Ensure text is centered */
+        text-align: center; /* Ensures text stays aligned */
     }
 
     .icon-container {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: -25px; /* Adjust icon position */
-        width: 40px;
-        height: 40px;
+        top: -20px; /* Adjust as needed */
+        width: 45px;
+        height: 45px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .icon-container i {
-        font-size: 1.2rem !important;
+        font-size: 1.5rem;
+        color: #007bff;
     }
 }
 
