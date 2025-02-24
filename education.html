@@ -208,12 +208,30 @@
     .right { left: 10%; }
 }
 
+
+     .card-body {
+        padding: 20px !important;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+    
+    .social-links a i {
+        font-size: 1.5rem !important;
+    }
+}
 @media (max-width: 768px) {
     .timeline {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-left: 0; /* Remove unwanted left padding */
     }
 
     .timeline::before {
@@ -231,37 +249,20 @@
         width: 90%;
         margin: 30px 0;
         position: relative;
-        text-align: center; /* Center align content */
+        text-align: center; /* Ensure text is centered */
     }
 
     .icon-container {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: -30px; /* Adjust icon position */
-        width: 50px;
-        height: 50px;
+        top: -25px; /* Adjust icon position */
+        width: 40px;
+        height: 40px;
     }
 
     .icon-container i {
-        font-size: 1.5rem !important;
-    }
-}
-
-     .card-body {
-        padding: 20px !important;
-    }
-    
-    .badge {
-        font-size: 0.8rem;
-    }
-    
-    .footer p {
-        font-size: 0.9rem;
-    }
-    
-    .social-links a i {
-        font-size: 1.5rem !important;
+        font-size: 1.2rem !important;
     }
 }
 
