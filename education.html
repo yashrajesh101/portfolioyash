@@ -225,54 +225,27 @@
         font-size: 1.5rem !important;
     }
 }
-        @media (max-width: 768px) {
-    .timeline {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-    }
-
+@media (max-width: 768px) {
     .timeline::before {
-        content: "";
-        position: absolute;
-        width: 3px; /* Adjust width for a clean look */
-        background-color: #007bff; /* Change color if needed */
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        display: none; /* Hide the timeline line on mobile */
     }
 
     .education-card {
         width: 90%;
         margin: 30px 0;
         position: relative;
-        text-align: center; /* Ensures text stays aligned */
+        text-align: center;
     }
 
     .icon-container {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -20px; /* Adjust as needed */
-        width: 45px;
-        height: 45px;
-        background-color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon-container i {
-        font-size: 1.5rem;
-        color: #007bff;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 10px auto; /* Center the icons on mobile */
     }
 }
 
-@media (max-width: 576px) {
+        @media (max-width: 576px) {
     .timeline::after {
         left: 15px;
     }
