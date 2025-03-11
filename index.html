@@ -429,51 +429,54 @@
    class="btn shining-text d-flex align-items-center justify-content-center gap-2 px-4 py-2 shadow-lg" 
    download="Yash_Rajesh_Resume.pdf">
     <i class="fas fa-download glowing-icon"></i> 
-    <span>Download Resume</span>
+    <span class="bold-text">Download Resume</span>
 </a>
 
 <style>
-  /* Transparent Button */
+  /* Transparent Button with Glowing Border */
   .btn {
-    background: transparent !important;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 14px 28px;
+    border-radius: 10px;
     transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Hover Effect */
   .btn:hover {
     border-color: #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    transform: scale(1.1);
   }
 
   /* Glowing Text Animation */
   @keyframes shining {
-    0% { color: red; text-shadow: 0 0 5px red, 0 0 10px red; }
-    25% { color: blue; text-shadow: 0 0 5px blue, 0 0 10px blue; }
-    50% { color: green; text-shadow: 0 0 5px green, 0 0 10px green; }
-    75% { color: orange; text-shadow: 0 0 5px orange, 0 0 10px orange; }
-    100% { color: red; text-shadow: 0 0 5px red, 0 0 10px red; }
+    0% { color: red; text-shadow: 0 0 8px red, 0 0 12px red; }
+    25% { color: blue; text-shadow: 0 0 8px blue, 0 0 12px blue; }
+    50% { color: green; text-shadow: 0 0 8px green, 0 0 12px green; }
+    75% { color: orange; text-shadow: 0 0 8px orange, 0 0 12px orange; }
+    100% { color: red; text-shadow: 0 0 8px red, 0 0 12px red; }
   }
 
-  .shining-text span {
+  .shining-text .bold-text {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     animation: shining 1.5s infinite linear;
   }
 
   /* Glowing Icon */
   @keyframes glow {
-    0% { color: white; text-shadow: 0 0 5px white, 0 0 10px white; }
-    50% { color: yellow; text-shadow: 0 0 10px yellow, 0 0 20px yellow; }
-    100% { color: white; text-shadow: 0 0 5px white, 0 0 10px white; }
+    0% { color: white; text-shadow: 0 0 10px white, 0 0 20px white; }
+    50% { color: yellow; text-shadow: 0 0 15px yellow, 0 0 30px yellow; }
+    100% { color: white; text-shadow: 0 0 10px white, 0 0 20px white; }
   }
 
   .glowing-icon {
-    font-size: 20px;
+    font-size: 24px;
     animation: glow 1.5s infinite alternate;
   }
 </style>
