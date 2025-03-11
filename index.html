@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="css/styles.css">
 	<script src="js/scripts.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="icon" type="image/png" href="https://yashrajesh101.github.io/portfolioyash/emj.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+       <link rel="icon" type="image/png" href="https://yashrajesh101.github.io/portfolioyash/emj.png">
 	
 	<style>
  body {
@@ -424,35 +426,59 @@
         <h3>Hello, I’m Yash Rajesh</h3>
         <p>Passionate and enthusiastic Computer Science Engineering graduate with a strong foundation in programming, web development, and problem-solving. My technical expertise includes HTML, CSS, JavaScript, Bootstrap, Figma, MySQL, MongoDB, Java, Python, C++, and Data Structures, along with familiarity in TypeScript, React, Node.js, Git, and GitHub. I am deeply interested in full-stack web development and continuously strive to enhance my skills in building robust, scalable applications. As someone who enjoys exploring innovative technologies and solving challenges, I am eager to apply my knowledge to create impactful solutions. In addition to my technical abilities, I bring a creative perspective as a musician.</p>			       
 <a href="https://yashrajesh101.github.io/portfolioyash/resume.pdf" 
-   class="btn btn-success btn-lg d-flex align-items-center justify-content-center gap-2 px-4 py-2 shadow-lg shining-text" 
+   class="btn shining-text d-flex align-items-center justify-content-center gap-2 px-4 py-2 shadow-lg" 
    download="Yash_Rajesh_Resume.pdf">
-    <i class="fas fa-download"></i> 
+    <i class="fas fa-download glowing-icon"></i> 
     <span>Download Resume</span>
 </a>
 
 <style>
+  /* Transparent Button */
+  .btn {
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Hover Effect */
+  .btn:hover {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+  }
+
+  /* Glowing Text Animation */
   @keyframes shining {
-    0% { color: red; }  /* Red */
-    25% { color: blue; } /* Blue */
-    50% { color: green; } /* Green */
-    75% { color: orange; } /* Orange */
-    100% { color: red; }  /* Back to Red */
+    0% { color: red; text-shadow: 0 0 5px red, 0 0 10px red; }
+    25% { color: blue; text-shadow: 0 0 5px blue, 0 0 10px blue; }
+    50% { color: green; text-shadow: 0 0 5px green, 0 0 10px green; }
+    75% { color: orange; text-shadow: 0 0 5px orange, 0 0 10px orange; }
+    100% { color: red; text-shadow: 0 0 5px red, 0 0 10px red; }
   }
 
   .shining-text span {
     font-weight: bold;
     font-size: 18px;
-    animation: shining 2s infinite linear;
+    animation: shining 1.5s infinite linear;
+  }
+
+  /* Glowing Icon */
+  @keyframes glow {
+    0% { color: white; text-shadow: 0 0 5px white, 0 0 10px white; }
+    50% { color: yellow; text-shadow: 0 0 10px yellow, 0 0 20px yellow; }
+    100% { color: white; text-shadow: 0 0 5px white, 0 0 10px white; }
+  }
+
+  .glowing-icon {
+    font-size: 20px;
+    animation: glow 1.5s infinite alternate;
   }
 </style>
 
-<!-- Ensure FontAwesome is included -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-
-
-
-</div>
+ </div>
             </div>
         </div>
 	
