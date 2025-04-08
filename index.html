@@ -821,6 +821,25 @@ i {
             <p>&copy; 2025 Yash Rajesh. All rights reserved.</p>
         </div>
     </footer>
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  // Disable certain key shortcuts
+  document.onkeydown = function (e) {
+    if (
+      e.key === "F12" || 
+      (e.ctrlKey && e.shiftKey && e.key === "I") || 
+      (e.ctrlKey && e.key === "U") || 
+      (e.ctrlKey && e.shiftKey && e.key === "J") ||
+      (e.ctrlKey && e.key === "S")
+    ) {
+      return false;
+    }
+  };
+</script>
 
 	<!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
