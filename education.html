@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  const access = sessionStorage.getItem("accessFromIndex");
+
+  if (!access) {
+    // Redirect to homepage if accessed directly
+    window.location.href = "index.html";
+  } else {
+    // Clear the flag so refresh doesn't bypass protection
+    sessionStorage.removeItem("accessFromIndex");
+  }
+</script>
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Yash Rajesh</title>
