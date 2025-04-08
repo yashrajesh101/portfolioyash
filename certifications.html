@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  const certAccess = sessionStorage.getItem("accessFromIndexCert");
+
+  if (!certAccess) {
+    // Redirect to index.html if not coming from homepage
+    window.location.href = "index.html";
+  } else {
+    // Clear it to block refresh bypass
+    sessionStorage.removeItem("accessFromIndexCert");
+  }
+</script>
+
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications & Trainings - Yash Rajesh</title>
