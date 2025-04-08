@@ -371,5 +371,25 @@
             observer.observe(card);
         });
     </script>
+    <script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  // Disable certain key shortcuts
+  document.onkeydown = function (e) {
+    if (
+      e.key === "F12" || 
+      (e.ctrlKey && e.shiftKey && e.key === "I") || 
+      (e.ctrlKey && e.key === "U") || 
+      (e.ctrlKey && e.shiftKey && e.key === "J") ||
+      (e.ctrlKey && e.key === "S")
+    ) {
+      return false;
+    }
+  };
+</script>
+
 </body>
 </html>
